@@ -1,0 +1,5 @@
+.reactExercises {
+    .links {
+        @include links($secondary: true)
+    }
+}

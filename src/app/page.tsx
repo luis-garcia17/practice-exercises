@@ -1,95 +1,39 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+/* eslint-disable react/no-unescaped-entities */
+'use client'
+import Link from 'next/link'
+import styles from './page.module.scss'
+import { useLinks } from "@/providers/LinksProvider";
+
 
 export default function Home() {
+
+  const { links } = useLinks();
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+    <main className={styles.home}>
+      <h1>Practice exercises</h1>
+      <p className={styles.description}>
+        This page contains several practice exercises that you can do to get
+        better, this is a reminder for you that the page now will use JS, Typescript, Sass, and React to solve everything. 
+        So we'll have to rework the links and the focus of the homepage. We'll probably remove the individual languages or technologies pages too
+        so we can have everything in one place.
+        Also we will probably programatically generate the pages like the nextjs blog example, the sections will exist and we will also now include section levels like beginner and intermediate.
+        But for now this page will only be our playground to test things that come to mind. Use all of these building block to build the final product someday.
+      </p>
+      <nav className={styles.exerciseLinks}>
+        <ul>
+          {links.map((link) => {
+            return (
+              <li key={link.id}>
+                <Link key={link.href} href={link.href} className="secondary">
+                  {link.text}
+                </Link>
+                <p>{link.description}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </main>
-  )
+  );
 }

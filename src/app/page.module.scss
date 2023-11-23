@@ -1,0 +1,58 @@
+.home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  .description {
+    text-align: center;
+  }
+
+  .exerciseLinks {
+    border: 1px solid $javascript-black;
+    border-radius: 4px;
+    background-color: rgba($white, 0.4);
+    width: 100%;
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 0 16px;
+      flex-wrap: wrap;
+      row-gap: 32px;
+      li {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 30%;
+        margin: 0 8px;
+        @include links($secondary: true);
+      }
+    }
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $laptop) {
+    .exerciseLinks {
+      ul { 
+          row-gap: 32px;
+        li {
+          width: 40%;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    h1 {
+      text-align: center;
+    }
+    .exerciseLinks {
+      ul { 
+          row-gap: 32px;
+        li {
+          width: 80%;
+        }
+      }
+    }
+  }
+}

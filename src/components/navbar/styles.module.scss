@@ -1,0 +1,98 @@
+  .navbar {
+    .mobileNavbar {
+      display: none;
+    }
+
+    .desktopNavbar {
+      width: 100vw;
+      background: $typescript-blue; //Change to $javascript-yellow
+      ul {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        list-style: none;
+        justify-content: flex-start;
+        padding-inline-start: 16px;
+        margin: 0;
+        @include links($navbar: true); //Change the links to $typescript-blue from $sass-pink or $javascript-yellow
+        height: 50px;
+        border-bottom: 2px solid $white;
+        img {
+          margin-right: 28px;
+        }
+      }
+    }
+
+    @media screen and (max-width: $tablet) {
+      .desktopNavbar {
+        display: none;
+      }
+
+      .mobileNavbar {
+        display: flex;
+        width: 100vw;
+        justify-content: space-between;
+        align-items: center;
+        background: $typescript-blue;
+        .hamburgerMenu {
+          color: $white;
+          height: 40px;
+          width: 40px;
+          margin-left: 16px;
+        }
+        .logo {
+          margin-right: 16px;
+        }
+      }
+
+      .sidebar {
+        background-color: $typescript-blue;
+        height: 100vh;
+        width: 80vw;
+        position: absolute;
+        top: 0;
+        box-shadow: 10px 0 10px rgba($javascript-black, 0.5);
+        animation: slideFromLeft 0.5s ease-in-out;
+        &.closing {
+          animation: slideToLeft 0.5s ease-in-out;
+        }
+        .closeButton {
+          color: $white;
+          height: 40px;
+          width: 40px;
+          margin-left: 16px;
+          margin-top: 16px;
+        }
+        ul {
+          @include links($navbar: true);
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          row-gap: 16px;
+          padding-inline-start: 8px;
+          li {
+            width: fit-content;
+            font-size: x-large;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes slideFromLeft {
+    from {
+      left: -100vw;
+    }
+    to {
+      left: 0
+    }
+  }
+
+  @keyframes slideToLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }

@@ -1,0 +1,20 @@
+body {
+  background: radial-gradient($white, $javascript-yellow);
+  height: 100vh;
+  margin: 0;
+
+  p {
+    color: $javascript-black;
+  }
+
+  pre {
+    box-shadow: 0 0 10px $javascript-black;
+  }
+
+  // @media screen and (max-width: $mobile) {
+  //   // font-size: 14px;
+  // }
+}
+
+
+
