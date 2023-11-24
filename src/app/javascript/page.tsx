@@ -35,6 +35,11 @@ const JavascriptExercises = () => {
       text: "Loop a triangle",
       href: `/loop-a-triangle`,
     },
+    {
+      id: 5,
+      text: "FizzBuzz",
+      href: `/fizzbuzz`,
+    },
   ];
 
   return (
